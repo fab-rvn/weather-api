@@ -1,0 +1,100 @@
+:root {
+  font-size: 62.5%;
+  --clr-textDark: #293251;
+  --clr-alert: #721c24;
+  --clr-bgWeather: #f4f9ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  background: linear-gradient(to right, #f3904f, #3b4371);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  border-radius: 3rem;
+  background-color: #fff;
+}
+
+.container > * div {
+  width: 100%;
+}
+
+.location {
+  min-height: 100px;
+  border-radius: 10px 10px 0 0;
+}
+
+.location p {
+  color: var(--clr-textDark);
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.notification {
+  background-color: var(--clr-textDark);
+  display: none;
+}
+
+.notification p {
+  color: var(--clr-alert);
+  font-size: 2rem;
+  padding: 10px 0;
+}
+
+.weather-container {
+  height: 260px;
+  background-color: var(--clr-bgWeather);
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+
+.weather-icon {
+  height: 128px;
+}
+
+.weather-icon img {
+  display: block;
+  margin: auto;
+}
+
+.temperature-value {
+  height: 60px;
+}
+
+.temperature-value p {
+  padding: 0;
+  margin: 0;
+  color: var(--clr-textDark);
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+.temperature-description p {
+  color: var(--clr-textDark);
+  font-size: 3rem;
+  margin: 10px;
+}
+
+
+
+
+
