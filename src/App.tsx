@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 
 interface IWeatherData {
   name: string;
@@ -52,40 +52,53 @@ function App() {
   }, [coords.latitude, coords.longitude]);
 
   return apiData?.weather ? (
-    <div className="container">
-      <div className="location text-center">
+    <div className="weather">
+      <div className="weather--location">
         <p>{`${apiData.name}, ${apiData.sys.country}`}</p>
-        <p>{apiData.sys.sunrise}</p>
-        <p>{apiData.sys.sunset}</p>
       </div>
-      <div className="weather-container">
-        <div className="weather-icon">
+      <div className="weather--container">
+        <div className="weather--container--icon">
           <img
             src={`http://openweathermap.org/img/wn/${apiData.weather[0].icon}@4x.png`}
             alt="weather"
           />
         </div>
-        <div className="temperature-description text-center">
+        <div className="weather--container--description">
           <p>{apiData.weather[0].description}</p>
         </div>
-        <div className="temperature-value text-center">
+        <div className="weather--container--temperature">
           <p>
             {Math.floor(apiData.main.temp) - 273}°<span>C</span>
           </p>
-          <span>
-            <span>Min </span>
-            {Math.floor(apiData.main.temp_min - 273)}°<span>C</span>
-          </span>
-          <span>
-            <span>Max </span>
-            {Math.floor(apiData.main.temp_max - 273)}°<span>C</span>
-          </span>
-          <span>{apiData.main.humidity}%</span>
+        </div>
+        <div className="weather--container--info">
+          <div>
+            <p>Min</p>
+            <p className="weather--container--info-value">
+              {Math.floor(apiData.main.temp_min - 273)}°<span>C</span>
+            </p>
+          </div>
+          <div>
+            <p>Max</p>
+            <p className="weather--container--info-value">
+              {Math.floor(apiData.main.temp_max - 273)}°<span>C</span>
+            </p>
+          </div>
+          <div>
+            <p>Humidity</p>
+            <p className="weather--container--info-value">
+              {apiData.main.humidity}
+              <span>%</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   ) : (
-    <p>Fetching</p>
+    <p>
+      You'll need to enable the geolocation in order to get the current weather
+      for you position
+    </p>
   );
 }
 
