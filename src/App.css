@@ -14,10 +14,10 @@
 body {
   font-size: 1.8rem;
   font-weight: 500;
-  background: linear-gradient(to right, #f3904f, #3b4371);
+  background-color: #f4f4f3;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 }
 
@@ -26,13 +26,9 @@ body {
 }
 
 .container {
-  width: 300px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  margin: 100px auto;
-  padding-top: 24px;
-  border-radius: 24px;
+  max-width: 350px;
+  margin: auto;
+  border-radius: 20px;
   background-color: #fff;
 }
 
@@ -41,9 +37,8 @@ body {
 }
 
 .location {
-  min-height: 100px;
+  padding: 24px;
   border-radius: 10px 10px 0 0;
-  margin-bottom: 16px;
 }
 
 .location p {
@@ -52,31 +47,17 @@ body {
   font-weight: 300;
 }
 
-.notification {
-  background-color: var(--clr-textDark);
-  display: none;
-}
-
-.notification p {
-  color: var(--clr-alert);
-  font-size: 2rem;
-  padding: 10px 0;
-}
-
 .weather-container {
-  height: 260px;
+  min-height: max-content;
   background-color: var(--clr-bgWeather);
-  border-bottom-right-radius: 3rem;
-  border-bottom-left-radius: 3rem;
-}
-
-.weather-icon {
-  height: 128px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0 8px 50px;
 }
 
 .weather-icon img {
   display: block;
-  margin: auto;
+  margin: -24px auto;
 }
 
 .temperature-value {
@@ -84,8 +65,6 @@ body {
 }
 
 .temperature-value p {
-  padding: 0;
-  margin: 0;
   color: var(--clr-textDark);
   font-size: 5rem;
   cursor: pointer;
@@ -94,5 +73,4 @@ body {
 .temperature-description p {
   color: var(--clr-textDark);
   font-size: 3rem;
-  margin: 10px;
 }
