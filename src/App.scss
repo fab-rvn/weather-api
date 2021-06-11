@@ -75,16 +75,13 @@ body {
       }
     }
     &--info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 150px);
+      justify-content: center;
       & p {
         color: var(--clr-textDark);
         white-space: nowrap;
         margin: 8px 0;
-      }
-      &-value {
-        font-size: 2.5rem;
       }
     }
   }

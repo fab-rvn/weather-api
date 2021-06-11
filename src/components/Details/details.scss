@@ -1,0 +1,11 @@
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--icon {
+    width: 44px;
+  }
+  &--value {
+    font-size: 2.5rem;
+  }
+}

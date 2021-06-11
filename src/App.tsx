@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
+import PressureIcon from './assets/wi-barometer.svg';
+import HumidityIcon from './assets/wi-humidity.svg';
+import WindIcon from './assets/wi-strong-wind.svg';
+import MinTempIcon from './assets/wi-thermometer-exterior.svg';
+import MaxTempIcon from './assets/wi-thermometer.svg';
+import Details from './components/Details';
+import { formatTemp } from './helpers';
 
 interface IWeatherData {
   name: string;
@@ -11,9 +18,16 @@ interface IWeatherData {
   weather: weather[];
   main: {
     temp: number;
+    feels_like: number;
     temp_min: number;
     temp_max: number;
+    pressure: number;
     humidity: number;
+  };
+  visibility: number;
+  wind: {
+    speed: number;
+    deg: number;
   };
 }
 
@@ -68,29 +82,32 @@ function App() {
         </div>
         <div className="weather--container--temperature">
           <p>
-            {Math.floor(apiData.main.temp) - 273}°<span>C</span>
+            {formatTemp(apiData.main.temp)}°<span>C</span>
           </p>
         </div>
         <div className="weather--container--info">
-          <div>
-            <p>Min</p>
-            <p className="weather--container--info-value">
-              {Math.floor(apiData.main.temp_min - 273)}°<span>C</span>
-            </p>
-          </div>
-          <div>
-            <p>Max</p>
-            <p className="weather--container--info-value">
-              {Math.floor(apiData.main.temp_max - 273)}°<span>C</span>
-            </p>
-          </div>
-          <div>
-            <p>Humidity</p>
-            <p className="weather--container--info-value">
-              {apiData.main.humidity}
-              <span>%</span>
-            </p>
-          </div>
+          <Details
+            icon={MinTempIcon}
+            data={formatTemp(apiData.main.temp_min)}
+            simbol="°C"
+          />
+          <Details
+            icon={MaxTempIcon}
+            data={formatTemp(apiData.main.temp_max)}
+            simbol="°C"
+          />
+
+          <Details icon={WindIcon} data={apiData.wind.speed} simbol="m/s" />
+          <Details
+            icon={HumidityIcon}
+            data={apiData.main.humidity}
+            simbol="%"
+          />
+          <Details
+            icon={PressureIcon}
+            data={apiData.main.pressure}
+            simbol="hPa"
+          />
         </div>
       </div>
     </div>
